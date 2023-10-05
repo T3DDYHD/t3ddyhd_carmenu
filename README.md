@@ -3,7 +3,7 @@
 ## THE SCRIPT IS EASY TO SETUP!
 - Drag the script into your server files - Note please call it the same name when you have it in your server files!
 - Edit the config to a locale you like!
-- add ensure t3ddy_car-radialmenu or start t3ddy_car-radialmenu into your server.cfg
+- add ensure t3ddyhd_carmenu or start t3ddyhd_carmenu into your server.cfg
 - then restart the server and enjoy! 😊
 
 ## REQUIREMENTS TO RUN THE SCRIPT:
