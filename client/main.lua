@@ -4,7 +4,7 @@ local windows = { true, true, true, true }
 
 local function viewLiveries()
     if not cache.vehicle then
-        return lib.notify({ title = locale('liveries'), description = locale('not_in_vehicle'), type = 'error',
+        return lib.notify({ title = Config.locale('liveries'), description = Config.locale('not_in_vehicle'), type = 'error',
             position = 'top', icon = 'ban' })
     end
 
@@ -13,7 +13,7 @@ end
 
 local function formatOption(vehicle, i)
     return {
-        title = locale('toggle_livery', i + 1),
+        title = Config.locale('toggle_livery', i + 1),
         event = 'toggleLivery',
         args = { vehicle = vehicle, livery = i }
     }
@@ -47,14 +47,14 @@ AddEventHandler('getLiveries', function()
     end
 
     if count == 0 then
-        return lib.notify({ title = locale('liveries'), description = locale('no_liveries_found'), type = 'error',
+        return lib.notify({ title = Config.locale('liveries'), description = Config.locale('no_liveries_found'), type = 'error',
             position = 'top', icon = 'ban' })
     end
 
     lib.registerContext(
         {
             id = 'liveries_menu',
-            title = locale('vehicle_liveries'),
+            title = Config.locale('vehicle_liveries'),
             options = options
         }
     )
@@ -78,7 +78,7 @@ lib.registerRadial({
     id = 'car_doors',
     items = {
         {
-            label = locale("back_right"),
+            label = Config.locale("back_right"),
             icon = 'car-side',
             keepOpen = true,
             onSelect = function()
@@ -86,7 +86,7 @@ lib.registerRadial({
             end
         },
         {
-            label = locale("trunk"),
+            label = Config.locale("trunk"),
             icon = 'trunk',
             keepOpen = true,
             onSelect = function()
@@ -94,7 +94,7 @@ lib.registerRadial({
             end
         },
         {
-            label = locale("front_right"),
+            label = Config.locale("front_right"),
             icon = 'car-side',
             keepOpen = true,
             onSelect = function()
@@ -102,7 +102,7 @@ lib.registerRadial({
             end
         },
         {
-            label = locale("front_left"),
+            label = Config.locale("front_left"),
             icon = 'car-side',
             keepOpen = true,
             onSelect = function()
@@ -110,7 +110,7 @@ lib.registerRadial({
             end
         },
         {
-            label = locale("hood"),
+            label = Config.locale("hood"),
             icon = 'car-hood',
             keepOpen = true,
             onSelect = function()
@@ -118,7 +118,7 @@ lib.registerRadial({
             end
         },
         {
-            label = locale("back_left"),
+            label = Config.locale("back_left"),
             icon = 'car-side',
             keepOpen = true,
             onSelect = function()
@@ -132,7 +132,7 @@ lib.registerRadial({
     id = 'car_windows',
     items = {
         {
-            label = locale("back_right"),
+            label = Config.locale("back_right"),
             icon = 'caret-right',
             keepOpen = true,
             onSelect = function()
@@ -140,7 +140,7 @@ lib.registerRadial({
             end
         },
         {
-            label = locale("co_driver"),
+            label = Config.locale("co_driver"),
             icon = 'caret-up',
             keepOpen = true,
             onSelect = function()
@@ -148,7 +148,7 @@ lib.registerRadial({
             end
         },
         {
-            label = locale("driver"),
+            label = Config.locale("driver"),
             icon = 'caret-up',
             keepOpen = true,
             onSelect = function()
@@ -156,7 +156,7 @@ lib.registerRadial({
             end
         },
         {
-            label = locale("back_left"),
+            label = Config.locale("back_left"),
             icon = 'caret-left',
             keepOpen = true,
             onSelect = function()
@@ -170,28 +170,28 @@ lib.registerRadial({
     id = 'car_seats',
     items = {
         {
-            label = locale("back_right"),
+            label = Config.locale("back_right"),
             icon = 'caret-right',
             onSelect = function()
                 changeSeat(2)
             end
         },
         {
-            label = locale("co_driver"),
+            label = Config.locale("co_driver"),
             icon = 'caret-up',
             onSelect = function()
                 changeSeat(0)
             end
         },
         {
-            label = locale("driver"),
+            label = Config.locale("driver"),
             icon = 'caret-up',
             onSelect = function()
                 changeSeat(-1)
             end
         },
         {
-            label = locale("back_left"),
+            label = Config.locale("back_left"),
             icon = 'caret-left',
             onSelect = function()
                 changeSeat(1)
@@ -204,12 +204,12 @@ lib.registerRadial({
     id = 'vehicle_menu',
     items = {
         {
-            label = locale("extras"),
+            label = Config.locale("extras"),
             icon = 'note-sticky',
             menu = 'extras'
         },
         {
-            label = locale("liveries"),
+            label = Config.locale("liveries"),
             icon = 'note-sticky',
             onSelect = function()
                 viewLiveries()
@@ -231,17 +231,17 @@ lib.registerRadial({
             end
         },
         {
-            label = locale("doors"),
+            label = Config.locale("doors"),
             icon = 'car-side',
             menu = 'car_doors'
         },
         {
-            label = locale("windows"),
+            label = Config.locale("windows"),
             icon = 'car-side',
             menu = 'car_windows'
         },
         {
-            label = locale("shuff"),
+            label = Config.locale("shuff"),
             icon = 'car-side',
             menu = 'car_seats'
         },
@@ -253,7 +253,7 @@ lib.onCache('vehicle', function(value)
         lib.addRadialItem({
             {
                 id = 'vehicle',
-                label = locale("vehicle_radial_label"),
+                label = Config.locale("vehicle_radial_label"),
                 icon = 'car',
                 menu = 'vehicle_menu'
             }
@@ -267,7 +267,7 @@ lib.registerRadial({
     id = 'extras',
     items = {
         {
-            label = locale("extra").." #1",
+            label = Config.locale("extra").." #1",
             icon = 'note-sticky',
             keepOpen = true,
             onSelect = function()
@@ -284,7 +284,7 @@ lib.registerRadial({
             end
         },
         {
-            label = locale("extra").." #2",
+            label = Config.locale("extra").." #2",
             icon = 'note-sticky',
             keepOpen = true,
             onSelect = function()
@@ -301,7 +301,7 @@ lib.registerRadial({
             end
         },
         {
-            label = locale("extra").." #3",
+            label = Config.locale("extra").." #3",
             icon = 'note-sticky',
             keepOpen = true,
             onSelect = function()
@@ -318,7 +318,7 @@ lib.registerRadial({
             end
         },
         {
-            label = locale("extra").." #4",
+            label = Config.locale("extra").." #4",
             icon = 'note-sticky',
             keepOpen = true,
             onSelect = function()
@@ -335,7 +335,7 @@ lib.registerRadial({
             end
         },
         {
-            label = locale("extra").." #5",
+            label = Config.locale("extra").." #5",
             icon = 'note-sticky',
             keepOpen = true,
             onSelect = function()
@@ -352,7 +352,7 @@ lib.registerRadial({
             end
         },
         {
-            label = locale("extra").." #6",
+            label = Config.locale("extra").." #6",
             icon = 'note-sticky',
             keepOpen = true,
             onSelect = function()
@@ -369,7 +369,7 @@ lib.registerRadial({
             end
         },
         {
-            label = locale("extra").." #7",
+            label = Config.locale("extra").." #7",
             icon = 'note-sticky',
             keepOpen = true,
             onSelect = function()
@@ -386,7 +386,7 @@ lib.registerRadial({
             end
         },
         {
-            label = locale("extra").." #8",
+            label = Config.locale("extra").." #8",
             icon = 'note-sticky',
             keepOpen = true,
             onSelect = function()
@@ -403,7 +403,7 @@ lib.registerRadial({
             end
         },
         {
-            label = locale("extra").." #9",
+            label = Config.locale("extra").." #9",
             icon = 'note-sticky',
             keepOpen = true,
             onSelect = function()
@@ -420,7 +420,7 @@ lib.registerRadial({
             end
         },
         {
-            label = locale("extra").." #10",
+            label = Config.locale("extra").." #10",
             icon = 'note-sticky',
             keepOpen = true,
             onSelect = function()
@@ -437,7 +437,7 @@ lib.registerRadial({
             end
         },
         {
-            label = locale("extra").." #11",
+            label = Config.locale("extra").." #11",
             icon = 'note-sticky',
             keepOpen = true,
             onSelect = function()
@@ -454,7 +454,7 @@ lib.registerRadial({
             end
         },
         {
-            label = locale("extra").." #12",
+            label = Config.locale("extra").." #12",
             icon = 'note-sticky',
             keepOpen = true,
             onSelect = function()
@@ -471,7 +471,7 @@ lib.registerRadial({
             end
         },
         {
-            label = locale("extra").." #13",
+            label = Config.locale("extra").." #13",
             icon = 'note-sticky',
             keepOpen = true,
             onSelect = function()
@@ -500,7 +500,7 @@ function toggleLivery(vehicle, livery)
         })
         if not SetVehicleLivery(vehicle, livery) then
             lib.notify({
-                description = locale("Livery number") .. livery .. locale("not_exist_on_car"),
+                description = Config.locale("Livery number") .. livery .. Config.locale("not_exist_on_car"),
                 type = 'error'
             })
         end
@@ -516,7 +516,7 @@ function setExtra(vehicle, extra)
             SetVehicleEngineHealth(vehicle, enginehealth)
             SetVehicleBodyHealth(vehicle, bodydamage)
             lib.notify({
-                description = locale("extra") .. extra .. locale("deactived"),
+                description = Config.locale("extra") .. extra .. Config.locale("deactived"),
                 type = 'error'
             })
         else
@@ -526,13 +526,13 @@ function setExtra(vehicle, extra)
             SetVehicleEngineHealth(vehicle, enginehealth)
             SetVehicleBodyHealth(vehicle, bodydamage)
             lib.notify({
-                description = locale("extra") .. extra .. locale("actived"),
+                description = Config.locale("extra") .. extra .. Config.locale("actived"),
                 type = 'success'
             })
         end
     else
         lib.notify({
-            description = locale("extra") .. extra .. locale("not_available_this_vehicle"),
+            description = Config.locale("extra") .. extra .. Config.locale("not_available_this_vehicle"),
             type = 'error'
         })
     end
